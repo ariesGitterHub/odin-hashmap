@@ -8,11 +8,11 @@ Before we get started, we need to lay down some ground rules. JavaScript’s dyn
 Use the following snippet whenever you access a bucket through an index. We want to throw an error if we try to access an out-of-bounds index:
 
 ```
-{
+
     if (index < 0 || index >= buckets.length) {
-    throw new Error("Trying to access index out of bounds");
+        throw new Error("Trying to access index out of bounds");
     }
-}
+
 ```
 
 ## Assignment
@@ -21,7 +21,7 @@ Start by creating a HashMap class or factory function. It’s up to you which yo
 1. hash(key) takes a key and produces a hash code with it. We already implemented a fairly good hash function in the previous lesson. As a reminder:
 
 ```
-{
+
     function hash(key) {
         let hashCode = 0;
         const primeNumber = 31;
@@ -29,10 +29,10 @@ Start by creating a HashMap class or factory function. It’s up to you which yo
             hashCode = primeNumber * hashCode + key.charCodeAt(i);
             }
 
-    return hashCode;
- } 
+        return hashCode;
+    } 
 
-}
+
 ```
 You are free to use that, or you can conduct your own research on hashing algorithms. Beware, this is a deep, deep rabbit hole.
 
@@ -72,16 +72,16 @@ Remember that a hash map does not preserve insertion order when you are retrievi
 2. Create a new instance of your hash map and set the load factor to be 0.75.
 
 ```
-{
+
      const test = new HashMap() // or HashMap() if using a factory
 
-}
+
 ```
 
 3. Populate your hash map using the set(key, value) method by copying the following:
 
 ```
-{
+
     test.set('apple', 'red')
     test.set('banana', 'yellow')
     test.set('carrot', 'orange')
@@ -94,7 +94,7 @@ Remember that a hash map does not preserve insertion order when you are retrievi
     test.set('jacket', 'blue')
     test.set('kite', 'pink')
     test.set('lion', 'golden')
-}
+
 ```
 
 4. After populating your hash map with the data above, your hash map’s current load levels should now be at 0.75 (full capacity).
@@ -104,10 +104,8 @@ Remember that a hash map does not preserve insertion order when you are retrievi
 6. After that, populate your hash map with the last node below. This will make your load levels exceed your load factor, triggering your hash map’s growth functionality and doubling its capacity:
 
 ```
-{
      test.set('moon', 'silver')
 
-}
 ```
 
 7. If you have implemented your hash map correctly, the load levels of your expanded hash map should drop well below your load factor, and the entries should be spread evenly among the expanded buckets.
